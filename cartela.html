@@ -61,7 +61,54 @@
   <button id="botao" onclick="Piscar()" >
     Piscando o Botão 
   </button>
+  <button onclick="GerarCartela()"> 
+    Gerar Cartela
+  </button>
   <script>
+    function GerarCartela()
+    {
+       vetorB = GerarVetor(1,15)
+       console.log(vetorB)
+
+       vetorI = GerarVetor(16,30)
+       console.log(vetorI)
+
+       vetorN = GerarVetor(31,45)
+       console.log(vetorN)
+
+       vetorG = GerarVetor(46,60)
+       console.log(vetorG)
+
+       vetorO = GerarVetor(61,75)
+       console.log(vetorO)
+
+       for(var i = 0; i <= 5; i++)
+       {
+        var td= document. getElementById("b"+ (i=1))
+        td. innerText= vetorB[i]
+
+        var td= document. getElementById("i"+ (i=1))
+        td. innerText= vetorI[i]
+
+        var td= document. getElementById("n"+ (i=1))
+        td. innerText= vetorN[i]
+
+        var td= document. getElementById("g"+ (i=1))
+        td. innerText= vetorG[i]
+
+        var td= document. getElementById("o"+ (i=1))
+        td. innerText= vetorO[i]
+       }
+    }
+    function GerarVetor(NumeroInicial,NumeroFinal)
+    {
+      vetor=[]
+      for(var i= NumeroInicial; i <= NumeroFinal; i++)
+      {
+        vetor.push(i)
+      }
+      return vetor
+    }
     function Piscar()
     {
       var botao = document.getElementById("botao");
