@@ -1,161 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bingo</title>
-    <link href="bingo.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bingo</title>
+  <link href="bingo.css" rel="stylesheet" />
 </head>
+
 <body>
-  <table class="tabela" >
+  <table class="tabela">
     <thead>
-        <tr>
-            <th>B</th>
-            <th>I</th>
-            <th>N</th>
-            <th>G</th>
-            <th>O</th>
-        </tr>
+      <tr>
+        <th>B</th>
+        <th>I</th>
+        <th>N</th>
+        <th>G</th>
+        <th>O</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-          <td id="b1" onclick="MarcarCartela(this)" >12</td><!--B-->
-          <td id="i1"onclick="MarcarCartela(this)" >30</td><!--I-->
-          <td id="n1"onclick="MarcarCartela(this)" >33</td><!--N-->
-          <td id="g1"onclick="MarcarCartela(this)" >51</td><!--G-->
-          <td id="o1"onclick="MarcarCartela(this)" >69</td><!--O-->
-        </tr>
-        <tr>
-          <td id="b2"onclick="MarcarCartela(this)" >9</td> <!--B-->
-          <td id="i2"onclick="MarcarCartela(this)" >24</td><!--I-->
-          <td id="n2"onclick="MarcarCartela(this)" >45</td><!--N-->
-          <td id="g2"onclick="MarcarCartela(this)" >59</td><!--G-->
-          <td id="o2"onclick="MarcarCartela(this)" >75</td><!--O-->
-        </tr>
-        <tr>
-          <td id="b3"onclick="MarcarCartela(this)" >13</td><!--B-->
-          <td id="i3"onclick="MarcarCartela(this)" >22</td><!--I-->
-          <td id="n3"onclick="MarcarCartela(this)" >31</td><!--N-->
-          <td id="g3"onclick="MarcarCartela(this)" >47</td><!--G-->
-          <td id="o3"onclick="MarcarCartela(this)" >64</td><!--O-->
-        </tr>
-        <tr>
-          <td id="b4" onclick="MarcarCartela(this)" >1</td><!--B-->
-          <td id="i4" onclick="MarcarCartela(this)" >16</td><!--I-->
-          <td id="n4" onclick="MarcarCartela(this)" >34</td><!--N-->
-          <td id="g4" onclick="MarcarCartela(this)" >49</td><!--G-->
-          <td id="o4" onclick="MarcarCartela(this)" >71</td><!--O-->
-        </tr>
-        <tr>
-          <td id="b5" onclick="MarcarCartela(this)" >5</td><!--B-->
-          <td id="i5" onclick="MarcarCartela(this)" >19</td><!--I-->
-          <td id="n5" onclick="MarcarCartela(this)" >32</td><!--N-->
-          <td id="g5" onclick="MarcarCartela(this)" >52</td><!--G-->
-          <td id="o5" onclick="MarcarCartela(this)" >70</td><!--O-->
-        </tr>
+      <tr>
+        <td id="b1" onclick="MarcarCartela(this)">12</td><!--B-->
+        <td id="i1" onclick="MarcarCartela(this)">30</td><!--I-->
+        <td id="n1" onclick="MarcarCartela(this)">33</td><!--N-->
+        <td id="g1" onclick="MarcarCartela(this)">51</td><!--G-->
+        <td id="o1" onclick="MarcarCartela(this)">69</td><!--O-->
+      </tr>
+      <tr>
+        <td id="b2" onclick="MarcarCartela(this)">9</td> <!--B-->
+        <td id="i2" onclick="MarcarCartela(this)">24</td><!--I-->
+        <td id="n2" onclick="MarcarCartela(this)">45</td><!--N-->
+        <td id="g2" onclick="MarcarCartela(this)">59</td><!--G-->
+        <td id="o2" onclick="MarcarCartela(this)">75</td><!--O-->
+      </tr>
+      <tr>
+        <td id="b3" onclick="MarcarCartela(this)">13</td><!--B-->
+        <td id="i3" onclick="MarcarCartela(this)">22</td><!--I-->
+        <td id="n3" onclick="MarcarCartela(this)">31</td><!--N-->
+        <td id="g3" onclick="MarcarCartela(this)">47</td><!--G-->
+        <td id="o3" onclick="MarcarCartela(this)">64</td><!--O-->
+      </tr>
+      <tr>
+        <td id="b4" onclick="MarcarCartela(this)">1</td><!--B-->
+        <td id="i4" onclick="MarcarCartela(this)">16</td><!--I-->
+        <td id="n4" onclick="MarcarCartela(this)">34</td><!--N-->
+        <td id="g4" onclick="MarcarCartela(this)">49</td><!--G-->
+        <td id="o4" onclick="MarcarCartela(this)">71</td><!--O-->
+      </tr>
+      <tr>
+        <td id="b5" onclick="MarcarCartela(this)">5</td><!--B-->
+        <td id="i5" onclick="MarcarCartela(this)">19</td><!--I-->
+        <td id="n5" onclick="MarcarCartela(this)">32</td><!--N-->
+        <td id="g5" onclick="MarcarCartela(this)">52</td><!--G-->
+        <td id="o5" onclick="MarcarCartela(this)">70</td><!--O-->
+      </tr>
     </tbody>
-  </table>  
-  
+  </table>
+
   <br />
 
-  <button id="botao" onclick="Piscar()" >
-    Piscando o Botão 
+  <button id="botao" onclick="Piscar()">
+    Piscando o Botão
   </button>
-  <button onclick="GerarCartela()"> 
+  <button onclick="GerarCartela()">
     Gerar Cartela
   </button>
   <script>
-    function GerarCartela()
-    {
-       vetorB = GerarVetor(1,15)
-       console.log(vetorB)
+    function GerarCartela() {
+      vetorB = MisturarArray(GerarVetor(1, 15))
+      console.log(vetorB)
 
-       vetorI = GerarVetor(16,30)
-       console.log(vetorI)
+      vetorI = GerarVetor(16, 30)
+      console.log(vetorI)
 
-       vetorN = GerarVetor(31,45)
-       console.log(vetorN)
+      vetorN = GerarVetor(31, 45)
+      console.log(vetorN)
 
-       vetorG = GerarVetor(46,60)
-       console.log(vetorG)
+      vetorG = GerarVetor(46, 60)
+      console.log(vetorG)
 
-       vetorO = GerarVetor(61,75)
-       console.log(vetorO)
+      vetorO = GerarVetor(61, 75)
+      console.log(vetorO)
 
-       for(var i = 0; i <= 5; i++)
-       {
-        var td= document. getElementById("B"+ (i+1))
-        td.innerText= vetorB[i]
+      for (var i = 0; i <= 5; i++) {
+        var td = document.getElementById("b" + (i + 1))
+        td.innerText = vetorB[i]
 
-        var td= document. getElementById("I"+ (i+1))
-        td. innerText= vetorI[i]
+        var td = document.getElementById("i" + (i + 1))
+        td.innerText = vetorI[i]
 
-        var td= document. getElementById("N"+ (i+1))
-        td. innerText= vetorN[i]
+        var td = document.getElementById("n" + (i + 1))
+        td.innerText = vetorN[i]
 
-        var td= document. getElementById("G"+ (i+1))
-        td. innerText= vetorG[i]
+        var td = document.getElementById("g" + (i + 1))
+        td.innerText = vetorG[i]
 
-        var td= document. getElementById("O"+ (i+1))
-        td. innerText= vetorO[i]
-       }
+        var td = document.getElementById("o" + (i + 1))
+        td.innerText = vetorO[i]
+      }
     }
-    function GerarVetor(NumeroInicial,NumeroFinal)
-    {
-      vetor=[]
-      for(var i= NumeroInicial; i <= NumeroFinal; i++)
-      {
+    function GerarVetor(NumeroInicial, NumeroFinal) {
+      vetor = []
+      for (var i = NumeroInicial; i <= NumeroFinal; i++) {
         vetor.push(i)
       }
       return vetor
     }
-    function Piscar()
-    {
+    function Piscar() {
       var botao = document.getElementById("botao");
-      if(botao.style.backgroundColor == 'red')
-      {
+      if (botao.style.backgroundColor == 'red') {
         botao.style.backgroundColor = 'blue';
-      }else{
+      } else {
         botao.style.backgroundColor = 'red';
       }
     }
 
-    function MarcarCartela(td)
-    {
-      if(td.style.backgroundColor != 'black')
-      {
+    function MarcarCartela(td) {
+      if (td.style.backgroundColor != 'black') {
         td.style.backgroundColor = 'black';
         td.style.color = "white";
-      }else{
+      } else {
         td.style.backgroundColor = '';
         td.style.color = "black";
       }
-        
-    }
- function NumeroAleatorio(NumeroMinimo, NumeroMaximo) {
-  var retorno = Math.floor(Math.random()* NumeroMaximo)
-  if (retorno >= NumeroMinimo && retorno <= NumeroMaximo)
- {return retorno
 
- } else{
-  return NumeroAleatorio(NumeroMinimo, NumeroMaximo)
- }
- function MisturarArray (array)
- {
-  var aleatorio
-  var cont= array.length
-  var auxiliar
-  while(cont !=0){
-    aleatorio = NumeroAleatorio(1, array.length)
-    cont--
-    auxiliar = array[cont]
-    array[cont]= array[aleatorio]
-    array[aleatorio] = auxiliar
-  }
- }
-}
+    }
+    function NumeroAleatorio(NumeroMinimo, NumeroMaximo)
+     {
+      var retorno = Math.floor(Math.random() * NumeroMaximo)
+      if (retorno >= NumeroMinimo && retorno <= NumeroMaximo) {
+        return retorno
+
+      } else {
+        return NumeroAleatorio(NumeroMinimo, NumeroMaximo)
+      }
+    }
+     function MisturarArray(array) {
+        var aleatorio
+        var cont = array.length
+        var auxiliar
+        while (cont != 0) {
+          aleatorio = NumeroAleatorio(1, array.length)
+          cont--
+          auxiliar = array[cont]
+          array[cont] = array[aleatorio]
+          array[aleatorio] = auxiliar
+        }
+        return array
+      }
+    
   </script>
 
 
 </body>
+
 </html>
