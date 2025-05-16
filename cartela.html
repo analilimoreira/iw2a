@@ -84,19 +84,19 @@
 
        for(var i = 0; i <= 5; i++)
        {
-        var td= document. getElementById("b"+ (i++1))
+        var td= document. getElementById("B"+ (i+1))
         td.innerText= vetorB[i]
 
-        var td= document. getElementById("i"+ (i++1))
+        var td= document. getElementById("I"+ (i+1))
         td. innerText= vetorI[i]
 
-        var td= document. getElementById("n"+ (i++1))
+        var td= document. getElementById("N"+ (i+1))
         td. innerText= vetorN[i]
 
-        var td= document. getElementById("g"+ (i++1))
+        var td= document. getElementById("G"+ (i+1))
         td. innerText= vetorG[i]
 
-        var td= document. getElementById("o"+ (i++1))
+        var td= document. getElementById("O"+ (i+1))
         td. innerText= vetorO[i]
        }
     }
@@ -132,7 +132,15 @@
       }
         
     }
+ function NumeroAleatorio(NumeroMinimo, NumeroMaximo) {
+  var retorno = Math.floor(Math.random()* NumeroMaximo)
+  if (retorno >= NumeroMinimo && retorno <= NumeroMaximo)
+ {return retorno
 
+ } else{
+  return NumeroAleatorio(NumeroMinimo, NumeroMaximo)
+ }
+}
   </script>
 
 
