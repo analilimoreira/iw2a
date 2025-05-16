@@ -140,6 +140,19 @@
  } else{
   return NumeroAleatorio(NumeroMinimo, NumeroMaximo)
  }
+ function MisturarArray (array)
+ {
+  var aleatorio
+  var cont= array.length
+  var auxiliar
+  while(cont !=0){
+    aleatorio = NumeroAleatorio(1, array.length)
+    cont--
+    auxiliar = array[cont]
+    array[cont]= array[aleatorio]
+    array[aleatorio] = auxiliar
+  }
+ }
 }
   </script>
 
