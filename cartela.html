@@ -60,9 +60,7 @@
             <div id="display">
             <h1>sorteando números</h1>
             </div>
-            <button onclick="NumeroSorteio()">
-            Sortear o numero
-        </button>
+           
         <table>
             <tr>
             <td id="1">1</td>
@@ -150,6 +148,9 @@
             <td id="75">75</td>
             </tr>
         </table> 
+        <button onclick="NumeroSorteio()">
+          Sortear o numero
+      </button>
     </div>     
     <script>
         function GerarVetor(numeroInicial, numeroFinal) {
@@ -161,12 +162,12 @@
         }
     
         function MarcarCartela(td) {
-        if (td.style.backgroundColor != 'blue') {
-            td.style.backgroundColor = 'blue'
-            td.style.color = "white"
+        if (td.style.backgroundColor != 'pink') {
+            td.style.backgroundColor = 'pink'
+            td.style.color = "black"
         } else {
             td.style.backgroundColor = ''
-            td.style.color = 'white'
+            td.style.color = 'rgb(255, 178, 236)'
         }
         }
     
@@ -209,7 +210,8 @@
         var numeroTabela = document.getElementById(numerosorteado)
     
         if (numeroTabela) {
-            numeroTabela.style.background = "blue"
+            numeroTabela.style.background = "pink"
+            numeroTabela.style.color = "black"
         }
     
     }
