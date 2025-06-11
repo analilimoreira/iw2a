@@ -1,22 +1,40 @@
-body, html {
-    background-color: #cccccc;
-    margin:0;
+body, html{
+    background-color: #000e24;
+    margin: 0;
     padding: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgb(178, 190, 255);
 }
 
 .tabela{
-    background-color: #FFFFFF;
-    border:5px double #000;
+    background-color: rgb(25, 58, 107);
+    border: 5px double #000000;
+    border-radius: 5%;
     font-size: 50px;
     padding: 5px 8px;
+    color: #023179;
 }
+
 td{
-    border:1px solid;
-    border-radius: 5%;
+    background-color: hwb(216 8% 56%);
+    border: 1px solid;
+    border-radius: 10%;
     text-align: center;
-    padding: 5px 8px;
+    padding: 10px 15px;
+}
+
+.img{
+    height: 20px;
+    width: 20px;
+}
+
+button{
+    display: flex;
+    color: rgb(178, 190, 255);
+    background-color: #023179;
+    border: 1px solid;
+    border-radius: 10%;
 }
