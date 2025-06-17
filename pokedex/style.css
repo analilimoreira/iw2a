@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #e0c3fc, #8ec5fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .search-box input {
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .search-box button {
+    padding: 10px;
+    background-color: #ff3e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .nav-buttons {
+    margin: 10px 0;
+  }
+  
+  .nav-buttons button {
+    padding: 8px 15px;
+    font-size: 16px;
+    margin: 0 5px;
+    background-color: #3e8eff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .card img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .type {
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .type.fire { background-color: #f08030; }
+  .type.water { background-color: #6890f0; }
+  .type.grass { background-color: #78c850; }
+  .type.electric { background-color: #f8d030; color: black; }
+  .type.bug { background-color: #a8b820; }
+  .type.normal { background-color: #a8a878; }
+  .type.poison { background-color: #a040a0; }
+  .type.ground { background-color: #e0c068; color: black; }
+  .type.flying { background-color: #a890f0; }
+  .type.fighting { background-color: #c03028; }
+  .type.psychic { background-color: #f85888; }
+  .type.rock { background-color: #b8a038; }
+  .type.ghost { background-color: #705898; }
+  .type.ice { background-color: #98d8d8; color: black; }
+  .type.dragon { background-color: #7038f8; }
+  .type.dark { background-color: #705848; }
+  .type.steel { background-color: #b8b8d0; }
+  .type.fairy { background-color: #f0b6bc; }
+  
