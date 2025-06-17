@@ -7,18 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="fundo" >
   <div class="container">
-    <h1>Pokédex</h1>
+    <h1> </h1><br>
 
-    <div class="search-box">
-      <input type="text" id="search" placeholder="Digite o nome ou número" />
-      <button onclick="searchPokemon()">Buscar</button>
-    </div>
-
-    <div class="nav-buttons">
-      <button onclick="prevPokemon()">⬅️</button>
-      <button onclick="nextPokemon()">➡️</button>
-    </div>
+   
+   
 
     <div class="card" id="pokedex">
       <h2 id="poke-name">Nome</h2>
@@ -26,7 +20,16 @@
       <img id="poke-img" src="" alt="Imagem do Pokémon" />
       <div id="poke-types" class="types"></div>
     </div>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Digite o nome ou número" />
+      <button onclick="searchPokemon()">Buscar</button>
+    </div>
+    
+      <button class="botao_mexer1" onclick="prevPokemon()">⬅️</button>
+      <button class="botao_mexer2" onclick="nextPokemon()">➡️</button>
+ 
   </div>
+</div>
 
   <script src="script.js"></script>
 </body>

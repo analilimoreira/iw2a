@@ -1,54 +1,82 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(120deg, #ffffff, #000000);
+    font-family: 'Segoe UI', 'Times New Roman';
+    background: #852424;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
   }
+  .fundo{
+    margin-top: 250px;
+    background-image: url(pokedex.jpg);
+    background-size: 380px;
+    border-radius: 15px;
+    position: relative;
+    top: -100px; 
+    width: 380px;
+    height: 550px;
+    background-color: lightblue;
+  }
   
   .container {
-    background: white;
     padding: 30px;
-    border-radius: 15px;
     text-align: center;
     width: 320px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   
   }
   
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: black;
   }
   
   .search-box input {
-    padding: 10px;
-    width: 70%;
-    margin-bottom: 10px;
+    background-color: transparent; 
+    border: none;                 
+    outline: none;                
+    color: black;                 
+    padding: 8px;
+    height: 2px;
+    width: 150px;
+    margin-bottom: 40px;
   }
   
   .search-box button {
-    padding: 10px;
+    padding: 7px;
     background-color: #ff3e3e;
     color: white;
     border: none;
     border-radius: 5px;
+    margin-top: 28px;
+    height: 22px;
+    width: 65px;
+   right: 300px;
   }
   
-  .nav-buttons {
-    margin: 10px 0;
-  }
-  
-  .nav-buttons button {
-    padding: 8px 15px;
+
+  .botao_mexer1  {
+    margin-right: auto;
+    display: block;
     font-size: 16px;
-    margin: 0 5px;
-    background-color: #3e8eff;
+   
+    background-color: #8ebdff;
     color: white;
     border: none;
     border-radius: 5px;
   }
+  .botao_mexer2 {
   
+    font-size: 16px;
+    margin-left: auto;
+    display: block;
+    background-color: #8ebdff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
   .card img {
     width: 150px;
     height: 150px;
