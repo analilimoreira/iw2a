@@ -1,9 +1,29 @@
 let currentId = 1;
 
-function searchPokemon() {
-  const input = document.getElementById("search").value.toLowerCase();
-  if (!input) return;
+const typeTranslations = {
+  normal: "Normal",
+  fire: "Fogo",
+  water: "Água",
+  grass: "Planta",
+  electric: "Elétrico",
+  ice: "Gelo",
+  fighting: "Lutador",
+  poison: "Venenoso",
+  ground: "Terrestre",
+  flying: "Voador",
+  psychic: "Psíquico",
+  bug: "Inseto",
+  rock: "Pedra",
+  ghost: "Fantasma",
+  dark: "Sombrio",
+  dragon: "Dragão",
+  steel: "Aço",
+  fairy: "Fada"
+};
 
+function searchPokemon() {
+  const input = document.getElementById("search").value.toLowerCase().trim();
+  if (!input) return;
   fetchPokemon(input);
 }
 
@@ -27,6 +47,7 @@ function fetchPokemon(identifier) {
     })
     .then(data => {
       currentId = data.id;
+
       document.getElementById("poke-name").textContent = data.name.toUpperCase();
       document.getElementById("poke-id").textContent = data.id;
       document.getElementById("poke-img").src = data.sprites.other["official-artwork"].front_default;
@@ -35,9 +56,13 @@ function fetchPokemon(identifier) {
       typesContainer.innerHTML = "";
 
       data.types.forEach(t => {
+        const typeName = t.type.name;
+        const translatedType = typeTranslations[typeName] || typeName;
+
         const span = document.createElement("span");
-        span.classList.add("type", t.type.name);
-        span.textContent = t.type.name;
+        span.classList.add("type", typeName);
+        span.textContent = translatedType;
+
         typesContainer.appendChild(span);
       });
     })
@@ -48,3 +73,4 @@ function fetchPokemon(identifier) {
 
 // Carrega o primeiro Pokémon (Bulbasaur)
 fetchPokemon(currentId);
+
