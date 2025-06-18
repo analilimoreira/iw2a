@@ -43,6 +43,7 @@ body {
   }
   
   .search-box input {
+    position: absolute;
     background-color: transparent; 
     border: none;                 
     outline: none;                
@@ -54,6 +55,7 @@ body {
   }
   
   .search-box button {
+    position: absolute;
     padding: 7px;
     background-color: #ff3e3e;
     color: white;
@@ -67,6 +69,7 @@ body {
   
 
   .botao_mexer1  {
+    position: absolute;
     margin-right: auto;
     display: block;
     font-size: 30px;
@@ -77,6 +80,7 @@ body {
     border-radius: 5px;
   }
   .botao_mexer2 {
+    position: absolute;
     margin-top: -42px;
     font-size: 30px;
     margin-left: auto;
@@ -87,6 +91,7 @@ body {
     border-radius: 5px;
   }
   .imagemsobreposta{
+    position: absolute;
     position: absolute;
     height: 110px;
     width:85px;
