@@ -4,33 +4,32 @@ include('conexao.php');
 $sql = "SELECT * FROM musicas";
 $result = $conn->query($sql);
 
+
+var_dump($result); 
+
 if ($result->num_rows > 0) {
-    echo "<table class='table table-bordered'>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome da Música</th>
-                    <th>Artista</th>
-                    <th>Ativa</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>";
+    echo '<div class="container my-4">';
+    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">';
     while($row = $result->fetch_assoc()) {
-        echo "<tr>
-                <td>" . $row["id"]. "</td>
-                <td>" . $row["nome"]. "</td>
-                <td>" . $row["artista"]. "</td>
-                <td>" . ($row["ativo"] ? 'Sim' : 'Não') . "</td>
-                <td>
-                    <a href='editar.php?id=".$row["id"]."' class='btn btn-warning'>Editar</a>
-                    <a href='excluir.php?id=".$row["id"]."' class='btn btn-danger'>Excluir</a>
-                </td>
-              </tr>";
+        var_dump($row); 
+        echo '<div class="col">';
+        echo '<div class="card shadow-sm h-100">';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . htmlspecialchars($row['nome']) . '</h5>';
+        echo '<p class="card-text"><strong>Artista:</strong> ' . htmlspecialchars($row['artista']) . '</p>';
+        echo '<p class="card-text"><strong>Ativa:</strong> ' . ($row['ativo'] ? 'Sim' : 'Não') . '</p>';
+        echo '</div>';
+        echo '<div class="card-footer text-center">';
+        echo '<a href="editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm me-2">Editar</a>';
+        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Tem certeza que deseja excluir esta música?\')">Excluir</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
     }
-    echo "</tbody></table>";
+    echo '</div>';
+    echo '</div>';
 } else {
-    echo "Nenhuma música encontrada";
+    echo '<div class="container my-5"><p class="text-center">Nenhuma música cadastrada.</p></div>';
 }
 
 $conn->close();
