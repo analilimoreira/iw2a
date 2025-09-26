@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         <input type="text" name="artista" value="<?php echo $row['artista']; ?>" class="form-control" required>
     </div>
     <div class="form-group">
-        <label for="ativo">Favorito:</label>
+        <label for="favorito">Favorito:</label>
         <input type="checkbox" name="favorita" <?php echo $row['favorita'] ? 'checked' : ''; ?>>
     </div>
     <button type="submit" class="btn btn-primary">Atualizar</button>

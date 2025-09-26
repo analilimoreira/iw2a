@@ -4,7 +4,6 @@ include('conexao.php');
 $sql = "SELECT * FROM musicas";
 $result = $conn->query($sql);
 
-
 var_dump($result); 
 
 if ($result->num_rows > 0) {
@@ -21,7 +20,7 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '<div class="card-footer text-center">';
         echo '<a href="editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm me-2">Editar</a>';
-        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm")">Excluir</a>';
+        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm">Excluir</a>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -34,3 +33,4 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+
