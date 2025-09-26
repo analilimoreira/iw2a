@@ -17,11 +17,11 @@ if ($result->num_rows > 0) {
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . htmlspecialchars($row['nome']) . '</h5>';
         echo '<p class="card-text"><strong>Artista:</strong> ' . htmlspecialchars($row['artista']) . '</p>';
-        echo '<p class="card-text"><strong>Ativa:</strong> ' . ($row['ativo'] ? 'Sim' : 'Não') . '</p>';
+        echo '<p class="card-text"><strong>Favorita:</strong> ' . ($row['favorita'] ? 'Sim' : 'Não') . '</p>';
         echo '</div>';
         echo '<div class="card-footer text-center">';
         echo '<a href="editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm me-2">Editar</a>';
-        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Tem certeza que deseja excluir esta música?\')">Excluir</a>';
+        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm")">Excluir</a>';
         echo '</div>';
         echo '</div>';
         echo '</div>';

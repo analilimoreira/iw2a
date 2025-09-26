@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2 class="mt-5">Lista de Músicas</h2>
-        <?php include('listar.php'); ?>
+        <?php include('listar.php') ?>
     </div>
 </body>
 </html>

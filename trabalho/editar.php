@@ -3,7 +3,7 @@ include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM musicas WHERE id=$id";
+    $sql = "SELECT * FROM musica WHERE id=$id";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 }
@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $artista = $_POST['artista'];
-    $ativo = isset($_POST['ativo']) ? 1 : 0;
+    $favorita = isset($_POST['favorita']) ? 1 : 0;
 
-    $sql = "UPDATE musicas SET nome='$nome', artista='$artista', ativo=$ativo WHERE id=$id";
+    $sql = "UPDATE musicas SET nome='$nome', artista='$artista', favorita='$favorita' WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "Música atualizada com sucesso!";
@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         <input type="text" name="artista" value="<?php echo $row['artista']; ?>" class="form-control" required>
     </div>
     <div class="form-group">
-        <label for="ativo">Ativa:</label>
-        <input type="checkbox" name="ativo" <?php echo $row['ativo'] ? 'checked' : ''; ?>>
+        <label for="ativo">Favorito:</label>
+        <input type="checkbox" name="favorita" <?php echo $row['favorita'] ? 'checked' : ''; ?>>
     </div>
     <button type="submit" class="btn btn-primary">Atualizar</button>
 </form>
