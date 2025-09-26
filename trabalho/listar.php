@@ -15,7 +15,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['nome'] . "</td>";
         echo "<td>" . $row['artista'] . "</td>";
-        echo "<td>" . ($row['favorita'] ? "Sim" : "Não") . "</td>";
+        echo "<td> Sim</td>";
         echo "<td>
                 <a href='editar.php?id=" . $row['id'] . "'>Editar</a> | 
                 <a href='excluir.php?id=" . $row['id'] . "'>Excluir</a>

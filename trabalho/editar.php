@@ -3,7 +3,7 @@ include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM musica WHERE id=$id";
+    $sql = "SELECT * FROM musicas WHERE id=$id";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 }

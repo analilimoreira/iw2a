@@ -4,7 +4,7 @@ include('conexao.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM musica WHERE id=$id";
+    $sql = "DELETE FROM musicas WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
         echo "Música excluída com sucesso!";
