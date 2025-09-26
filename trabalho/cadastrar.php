@@ -4,7 +4,7 @@ include('conexao.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $artista = $_POST['artista'];
-    $ativo = isset($_POST['favorita']) ? 1 : 0;
+    $favorita= isset($_POST['favorita']) ? 1 : 0;
 
     $sql = "INSERT INTO musicas (nome, artista, favorita) VALUES ('$nome', '$artista', $favorita)";
 
