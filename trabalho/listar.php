@@ -1,36 +1,30 @@
 <?php
-include('conexao.php');
+include("conexao.php");
 
 $sql = "SELECT * FROM musicas";
-$result = $conn->query($sql);
+$result = mysqli_query($conexao, $sql);
 
-var_dump($result); 
+echo "<h1>Lista de Músicas</h1>";
 
-if ($result->num_rows > 0) {
-    echo '<div class="container my-4">';
-    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">';
-    while($row = $result->fetch_assoc()) {
-        var_dump($row); 
-        echo '<div class="col">';
-        echo '<div class="card shadow-sm h-100">';
-        echo '<div class="card-body">';
-        echo '<h5 class="card-title">' . htmlspecialchars($row['nome']) . '</h5>';
-        echo '<p class="card-text"><strong>Artista:</strong> ' . htmlspecialchars($row['artista']) . '</p>';
-        echo '<p class="card-text"><strong>Favorita:</strong> ' . ($row['favorita'] ? 'Sim' : 'Não') . '</p>';
-        echo '</div>';
-        echo '<div class="card-footer text-center">';
-        echo '<a href="editar.php?id=' . $row['id'] . '" class="btn btn-warning btn-sm me-2">Editar</a>';
-        echo '<a href="excluir.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm">Excluir</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
+if (mysqli_num_rows($result) > 0) {
+    echo "<table border='1' cellpadding='10'>";
+    echo "<tr><th>ID</th><th>Nome</th><th>Artista</th><th>Favorita</th><th>Ações</th></tr>";
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['nome'] . "</td>";
+        echo "<td>" . $row['artista'] . "</td>";
+        echo "<td>" . ($row['favorita'] ? "Sim" : "Não") . "</td>";
+        echo "<td>
+                <a href='editar.php?id=" . $row['id'] . "'>Editar</a> | 
+                <a href='excluir.php?id=" . $row['id'] . "'>Excluir</a>
+              </td>";
+        echo "</tr>";
     }
-    echo '</div>';
-    echo '</div>';
+
+    echo "</table>";
 } else {
-    echo '<div class="container my-5"><p class="text-center">Nenhuma música cadastrada.</p></div>';
+    echo "<p>Nenhuma música cadastrada.</p>";
 }
-
-$conn->close();
 ?>
-
