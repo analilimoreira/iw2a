@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciar Músicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #5a2a83; 
+            color: #f3f0f7;
+            font-family:  'Verdana';
+        }
+        .container {
+            max-width: 900px;
+            background-color: #6f3dbf;
+            border-radius: 12px;
+            padding: 30px 40px;
+            margin-top: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h2 {
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #f1e9ff;
+        }
+        form .form-control,
+        form .form-select {
+            border-radius: 10px;
+            border: none;
+            padding: 10px 15px;
+            background-color: #a17dd9;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+       
+        .input-light {
+            background-color: #d9cfff !important; 
+            color: #4b367c !important;
+            border: none !important;
+        }
+        .input-light::placeholder {
+            color: #7e6bbe;
+        }
+        .input-light:focus {
+            background-color: #c4b8f7 !important;
+            color: #3e2e6d !important;
+            box-shadow: 0 0 0 0.25rem rgba(126, 75, 184, 0.5);
+        }
+        .btn-success {
+            background-color: #9c6dde;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 22px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #7e4bb8;
+        }
+        .btn-secondary {
+            background-color: #baa0e9;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 22px;
+            color: #3e2e6d;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #9278d1;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #7e4bb8;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 18px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #5c3481;
+        }
+        .btn-outline-dark {
+            color: #f3f0f7;
+            border-color: #cbb7ff;
+            border-radius: 12px;
+            padding: 10px 18px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-outline-dark:hover {
+            background-color: #7e4bb8;
+            color: #fff;
+            border-color: #7e4bb8;
+        }
+        .table {
+            background-color: #7e5dcf;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+        }
+        .table thead {
+            background-color: #5a2a83;
+            color: #dcd7f7;
+        }
+        .table tbody tr {
+            transition: background-color 0.25s ease;
+        }
+        .table tbody tr:hover {
+            background-color: #8e6ee2;
+            color: #fff;
+        }
+        .text-center button {
+            border-radius: 8px;
+            padding: 4px 12px;
+        }
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            form .col-md-3, form .col-md-2, form .col-md-1, form .col-md-12 {
+                flex: 100% !important;
+                max-width: 100% !important;
+            }
+            .text-center button {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gerenciar Músicas</h2>
+
+        <form class="row g-3 mb-4">
+            <input type="hidden" id="id" />
+
+            <div class="col-md-3">
+                <input type="text" id="titulo" class="form-control input-light rounded-3" placeholder="Título" />
+            </div>
+
+            <div class="col-md-3">
+                <input type="text" id="artista" class="form-control input-light rounded-3" placeholder="Artista" />
+            </div>
+
+            <div class="col-md-3">
+                <input type="text" id="album" class="form-control input-light rounded-3" placeholder="Álbum" />
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" id="genero" class="form-control input-light rounded-3" placeholder="Gênero" />
+            </div>
+
+            <div class="col-md-1">
+                <select id="ativo" class="form-select input-light rounded-3">
+                    <option value="1" selected>Sim</option>
+                    <option value="0">Não</option>
+                </select>
+            </div>
+
+            <div class="col-12 d-flex gap-3 justify-content-end mt-3">
+                <button type="button" class="btn btn-success" onclick="salvar()">Salvar</button>
+                <button type="reset" class="btn btn-secondary" onclick="limpar()">Cancelar</button>
+            </div>
+
+            <div class="col-12 d-flex gap-2 mt-4">
+                <input
+                    type="text"
+                    id="pesquisa"
+                    class="form-control input-light rounded-3"
+                    placeholder="Pesquisar título ou artista..."
+                />
+                <button type="button" class="btn btn-primary" onclick="carregarPesquisa()">Pesquisar</button>
+                <button type="button" class="btn btn-outline-dark" onclick="carregar()">Listar Todas</button>
+            </div>
+        </form>
+
+        <div class="table-responsive rounded">
+            <table id="tabela" class="table table-bordered table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Artista</th>
+                        <th>Álbum</th>
+                        <th>Gênero</th>
+                        <th>Ativo</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_URL = "http://localhost:8081/trabalho/index.html";
+        const tbody = document.querySelector("#tabela tbody");
+
+        function carregar(pesquisa = "") {
+            tbody.innerHTML = "";
+            let url = API_URL;
+            if (pesquisa) {
+                url += "?pesquisa=" + encodeURIComponent(pesquisa);
+            }
+
+            fetch(url)
+                .then((res) => res.json())
+                .then((dados) => {
+                    dados.forEach((musicas) => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${musicas.ID}</td>
+                            <td>${musicas.TITULO}</td>
+                            <td>${musicas.ARTISTA}</td>
+                            <td>${musicas.ALBUM}</td>
+                            <td>${musicas.GENERO}</td>
+                            <td>${musicas.ATIVO == 1 ? "Sim" : "Não"}</td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-warning" onclick='editar(${JSON.stringify(
+                                  musicas
+                                )})'>Editar</button>
+                                <button class="btn btn-sm btn-danger" onclick='excluir(${musicas.ID})'>Excluir</button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                });
+        }
+
+        function carregarPesquisa() {
+            const valor = document.getElementById("pesquisa").value;
+            carregar(valor);
+        }
+
+        async function salvar() {
+            const id = document.getElementById("id").value;
+            const titulo = document.getElementById("titulo").value;
+            const artista = document.getElementById("artista").value;
+            const album = document.getElementById("album").value;
+            const genero = document.getElementById("genero").value;
+            const ativo = document.getElementById("ativo").value;
+
+            const payload = {
+                ID: id,
+                TITULO: titulo,
+                ARTISTA: artista,
+                ALBUM: album,
+                GENERO: genero,
+                ATIVO: ativo,
+            };
+
+            const metodo = id ? "PUT" : "POST";
+
+            await fetch(API_URL, {
+                method: metodo,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            limpar();
+            carregar();
+        }
+
+        function editar(musicas) {
+            document.getElementById("id").value = musicas.ID;
+            document.getElementById("titulo").value = musicas.TITULO;
+            document.getElementById("artista").value = musicas.ARTISTA;
+            document.getElementById("album").value = musicas.ALBUM;
+            document.getElementById("genero").value = musicas.GENERO;
+            document.getElementById("ativo").value = musicas.ATIVO;
+        }
+
+        async function excluir(id) {
+            if (confirm("Deseja excluir esta música?")) {
+                await fetch(API_URL + "?id=" + id, { method: "DELETE" });
+                carregar();
+            }
+        }
+
+        function limpar() {
+            document.getElementById("id").value = "";
+            document.getElementById("titulo").value = "";
+            document.getElementById("artista").value = "";
+            document.getElementById("album").value = "";
+            document.getElementById("genero").value = "";
+            document.getElementById("ativo").value = "1";
+            document.getElementById("pesquisa").value = "";
+        }
+
+        carregar();
+    </script>
+</body>
+</html>
